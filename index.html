@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#120d27">
+  <meta name="description" content="Princess's Quest — An endless magical adventure">
+  <title>PRINCESS'S QUEST 👑</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Nunito:wght@500;700;800;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="game-shell">
+    <canvas id="game-canvas" aria-label="Princess's Quest game"></canvas>
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-crown">♛</div>
+        <div>
+          <div class="brand-title">PRINCESS'S QUEST</div>
+          <div class="brand-subtitle">Endless Magical Adventure</div>
+        </div>
+      </div>
+      <div class="top-actions"><button id="pause-btn" class="glass-icon pause-btn" aria-label="Pause game"
+          hidden>Ⅱ</button><button id="sound-btn" class="glass-icon" aria-label="Toggle sound">♫</button></div>
+    </header>
+    <section class="hud" id="hud" hidden>
+      <div class="hud-card"><span class="hud-label">SCORE</span><strong id="score">000000</strong></div>
+      <div class="hud-card gem-card"><span class="hud-label">GEMS</span><strong>◆ <span id="gems">0</span></strong>
+      </div>
+      <div class="hud-card"><span class="hud-label">BEST</span><strong id="best">000000</strong></div>
+      <div class="combo-badge" id="combo"></div>
+    </section>
+    <div class="gesture-hint" id="gesture-hint" hidden>
+      Swipe ← → to change lane · ↑ to jump · ↓ to slide / fast-fall
+    </div>
+    <main class="overlay" id="start-screen">
+      <div class="sparkle">✦　✧　✦</div>
+      <p class="eyebrow">A Fairy Tale For You</p>
+      <h1>Princess's<br><em>Quest</em></h1>
+      <p class="intro">A magical journey through an enchanted kingdom.<br>Collect gems, avoid obstacles, and go as far
+        as you can.</p>
+      <div class="mini-instructions">
+        <div><span class="gesture-symbol">↔</span><b>Swipe</b><small>Change lane</small></div>
+        <div><span class="gesture-symbol">↑</span><b>Jump</b><small>Clear obstacles</small></div>
+        <div><span class="gesture-symbol">↓</span><b>Slide</b><small>Under arches / fast-fall</small></div>
+      </div>
+      <button class="primary-btn" id="start-btn">Start Adventure <span>✧</span></button>
+      <p class="footnote">Best experience with sound · No extra buttons needed</p>
+    </main>
+    <main class="overlay result-screen" id="game-over-screen" hidden>
+      <div class="result-icon">✧</div>
+      <p class="eyebrow">Adventure Paused</p>
+      <h2>Keep Going<br><em>Princess!</em></h2>
+      <p class="intro">Every great story deserves a new chapter.</p>
+      <div class="result-stats">
+        <div><span>Your Score</span><strong id="final-score">0</strong></div>
+        <div><span>Gems</span><strong id="final-gems">0</strong></div>
+      </div>
+      <button class="primary-btn" id="restart-btn">Try Again <span>↻</span></button>
+    </main>
+    <main class="overlay pause-screen" id="pause-screen" hidden>
+      <div class="sparkle">✦　✧　✦</div>
+      <p class="eyebrow">Magical Break</p>
+      <h2>Quick Pause</h2>
+      <p class="intro">The kingdom will wait for you ✨</p><button class="primary-btn" id="resume-btn">Continue Adventure
+        ▶</button>
+    </main>
+    <div class="toast" id="toast" aria-live="polite"></div>
+    <div class="loading" id="loading">
+      <div class="loading-crown">♛</div><span>Awakening the magic...</span>
+    </div>
+  </div>
+  <script type="module" src="game.js"></script>
+</body>
+
+</html>
